@@ -1,0 +1,7 @@
+.fondo{
+    background-image: url("resources/images/fondo.jpg");
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
