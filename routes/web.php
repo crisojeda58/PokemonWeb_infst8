@@ -26,3 +26,4 @@ Route::get('/dailyreward', function () {
 Route::get('/login', function () {
     return view('crud.login');
 });
+
