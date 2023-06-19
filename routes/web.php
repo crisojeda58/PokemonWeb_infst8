@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('crud.index');
 });
+/**http://test.test/crud/login  Esta es la ruta del login */
+Route::get('/crud/login', function () {
+    return view('crud.login');
+});
