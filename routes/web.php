@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('crud.index');
 });
+
 Route::get('/inicio', function () {
     return view('crud.inicio');
 });
 
+
+
+Route::get('/dailyreward', function () {
+    return view('crud.dailyreward');
+});
