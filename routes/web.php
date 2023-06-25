@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('crud.index');
 });
-<<<<<<< Updated upstream
-=======
 Route::get('/inicio', function () {
     return view('crud.inicio');
 });
@@ -31,5 +29,3 @@ Route::get('/login', function () {
 Route::get('/mapa', function () {
     return view('crud.mapa');
 });
-
->>>>>>> Stashed changes
