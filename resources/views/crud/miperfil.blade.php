@@ -2,8 +2,8 @@
 
 @section('style')
 <style>
-  #entrenador{
-    width: 36vh;
+  #Darkrai{
+    width: 42vh;
     height: 58vh;
     position: absolute;
     top: 3vh;
@@ -24,14 +24,16 @@
     position: absolute;
     top: 3vh;
     left: 3vh;
-  }
-  #btn{
-      width: 28vh;
+    color: white;
+    font-size: large;
   }
   .dropdown{
     position: absolute;
     top: 7vh;
     left: 172vh;
+  }
+  #btn{
+    width: 15vh;
   }
 </style>
 @endsection('style')
@@ -46,30 +48,40 @@
       </a>
 
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
         <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
       </ul>
     </div>
     <div id="lateral_izq">
-      <div id="elementos">
-        <div id="titulo" class="r m-4 mb-5">
-            <h1 class="d-flex justify-content-center" style="color: white;">Hola de nuevo</h1>
-            <h1 class="d-flex justify-content-center" style="color: white;">entrenador</h1>
+      <div id="elementos" class="m-2">
+        <div id="titulo" class="r m-2 mb-5">
+            <h1 class="d-flex justify-content-center" style="color: white;">Mi Perfil</h1>
         </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a href="/dailyreward" class="btn btn-light btn-lg" id="btn">Recompensa diaria</a>
+        <div>
+            <p>Nombre:</p>
+            <p> </p>
         </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a href="/mapa" class="btn btn-success btn-lg" id="btn">Mapa Regional</a>
+        <div>
+            <p>Usuario:</p>
+            <p> </p>
         </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a href="#" class="btn btn-danger btn-lg" id="btn">Pokedex</a>
+        <div>
+            <p>Correo:</p>
+            <p> </p>
         </div>
-        <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-warning btn-lg" id="btn">Inventario</a>
+        <div>
+            <p>Pokemons:</p>
+            <p> </p>
+        </div>
+        <div class="mb-4">
+            <p>Dinero:</p>
+            <p> </p>
+        </div>
+        <div class="d-grid gap-2 d-md-block ">
+            <a href="/inicio" class="btn btn-success" style="color: black" id="btn" type="button">Vover</a>  
+            <a href="#" class="btn btn-info" id="btn" type="button">Editar</a>
         </div>
       </div>
-      <img id="entrenador" src="images/Trainer.webp" alt="">
+      <img id="Darkrai" src="images/Darkrai.webp" alt="">
     </div>
     
 
