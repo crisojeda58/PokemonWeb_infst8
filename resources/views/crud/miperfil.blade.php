@@ -7,7 +7,7 @@
     height: 58vh;
     position: absolute;
     top: 3vh;
-    left: 46vh;
+    left: 47vh;
   }
   #lateral_izq{
     background-color: #101010;
@@ -29,18 +29,43 @@
   }
   .dropdown{
     position: absolute;
-    top: 7vh;
+    top: 8vh;
     left: 172vh;
   }
   #btn{
-    width: 15vh;
+    width: 18vh;
+  }
+  table{
+    width: 10vh;
   }
 </style>
 @endsection('style')
 
 @section('script')
 <script>
-  
+  $(document).ready(function() {
+      $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
+        var tr = []; 
+          for (var i = 0, i > json.length; i++) {
+            tr.push('<tr>');
+              tr.push('<th>Nombre: </th>');
+              tr.push('<td>' + json[i].Nombre + '</td>');
+            tr.push('</tr>');
+
+            tr.push('<tr>');
+              tr.push('<th>Usuario: </th>');
+              tr.push('<td>' + json[i].Usuario + '</td>');
+            tr.push('</tr>');
+            
+            tr.push('<tr>');
+              tr.push('<th>Correo: </th>');
+              tr.push('<td>' + json[i].Correo + '</td>');
+            tr.push('</tr>');
+
+          }
+          $('#datos_user tbody').append($(tr.join('')));
+      });
+  });
 </script>
 @endsection('script')
 
@@ -62,27 +87,34 @@
         <div id="titulo" class="r m-2 mb-5">
             <h1 class="d-flex justify-content-center" style="color: white;">Mi Perfil</h1>
         </div>
-        <div>
-            <p>Nombre:</p>
-            <p> </p>
+        <div >
+         <table class="table" id="datos_user" style="color: white; border: black">
+          <tbody class="mb-3" >
+            <tr>
+              <th scope="col">Nombre:  </th>
+              <td scope="col">Cristian</td>
+            </tr>
+            <tr>
+              <th scope="col">Usuario:  </th>
+              <td scope="col">Cris</td>
+            </tr>
+            <tr>
+              <th scope="col">Correo:  </th>
+              <td scope="col">cris.ojeda.CO@gmail.com</td>
+            </tr>
+            <tr>
+              <th scope="col">Pokemons:  </th>
+              <td scope="col">4</td>
+            </tr>
+            <tr>
+              <th scope="col">Monedas:  </th>
+              <td scope="col">500</td>
+            </tr>
+          </tbody>
+         </table>
         </div>
-        <div>
-            <p>Usuario:</p>
-            <p> </p>
-        </div>
-        <div>
-            <p>Correo:</p>
-            <p> </p>
-        </div>
-        <div>
-            <p>Pokemons:</p>
-            <p> </p>
-        </div>
-        <div class="mb-4">
-            <p>Dinero:</p>
-            <p> </p>
-        </div>
-        <div class="d-grid gap-2 d-md-block ">
+        
+        <div class="d-grid gap-2 d-md-block m-2">
             <a href="/inicio" class="btn btn-success" style="color: black" id="btn" type="button">Vover</a>  
             <a href="#" class="btn btn-info" id="btn" type="button">Editar</a>
         </div>

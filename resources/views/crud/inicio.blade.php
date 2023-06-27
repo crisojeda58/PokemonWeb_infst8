@@ -19,7 +19,7 @@
     border-radius:30px;
   }
   #elementos{
-    width: 40vh;
+    width: 42vh;
     height: 60vh;
     position: absolute;
     top: 3vh;
@@ -30,7 +30,7 @@
   }
   .dropdown{
     position: absolute;
-    top: 7vh;
+    top: 8vh;
     left: 172vh;
   }
 </style>
@@ -52,7 +52,7 @@
     </div>
     <div id="lateral_izq">
       <div id="elementos">
-        <div id="titulo" class="r m-4 mb-5">
+        <div id="titulo" class="r m-3 mb-5">
             <h1 class="d-flex justify-content-center" style="color: white;">Hola de nuevo</h1>
             <h1 class="d-flex justify-content-center" style="color: white;">entrenador</h1>
         </div>
