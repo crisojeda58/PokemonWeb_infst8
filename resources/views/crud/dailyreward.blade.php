@@ -29,27 +29,27 @@
         // Función para obtener la recompensa diaria
         $(document).ready(function() {
             $('#obtener-recompensa').on('click', function() {
-                //var fechaUltimoLogin = localStorage.getItem('fechaUltimoLogin');
-                //var fechaActual = new Date().toDateString();
+                var fechaUltimoLogin = localStorage.getItem('fechaUltimoLogin');
+                var fechaActual = new Date().toDateString();
 
-                //if (fechaUltimoLogin === fechaActual) {
-                //    alert('Ya has reclamado la recompensa de hoy.');
-                //} else {
-                //    localStorage.setItem('fechaUltimoLogin', fechaActual);
-                var recompensaObtenida = recompensaAleatoria();
-                var recompensaActual = parseInt($('#recompensa-diaria').text() || 0);
-                var recompensaTotal = parseInt($('#recompensa-total').text() || 0);
+                if (fechaUltimoLogin === fechaActual) {
+                    alert('Ya has reclamado la recompensa de hoy.');
+                } else {
+                    localStorage.setItem('fechaUltimoLogin', fechaActual);
+                    var recompensaObtenida = recompensaAleatoria();
+                    var recompensaActual = parseInt($('#recompensa-diaria').text() || 0);
+                    var recompensaTotal = parseInt($('#recompensa-total').text() || 0);
 
-                recompensaActual += recompensaObtenida;
-                recompensaTotal += recompensaObtenida;
+                    recompensaActual += recompensaObtenida;
+                    recompensaTotal += recompensaObtenida;
 
-                $('#recompensa-actual').text(recompensaObtenida);
+                    $('#recompensa-actual').text(recompensaObtenida);
 
-                almacenarRecompensaTotal(recompensaObtenida);
-                mostrarRecompensaTotal();
+                    almacenarRecompensaTotal(recompensaObtenida);
+                    mostrarRecompensaTotal();
 
-                alert('¡Has obtenido ' + recompensaObtenida + ' monedas!');
-                //}
+                    alert('¡Has obtenido ' + recompensaObtenida + ' monedas!');
+                }
             });
         });
     </script>
