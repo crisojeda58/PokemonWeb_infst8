@@ -1,13 +1,8 @@
 @extends('layout.master')
 
 @section('script')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Recompensa Diaria</title>
+
     <script>
         // Lista de las recompensas
         var listaRecompensas = [20, 30, 50, 100];
@@ -18,46 +13,85 @@
             return listaRecompensas[indice];
         }
 
+        // Función para cargar la recompensa total
+        function almacenarRecompensaTotal(recompensaObtenida) {
+            var recompensaTotal = parseInt(localStorage.getItem('recompensaTotal')) || 0;
+            recompensaTotal += recompensaObtenida;
+            localStorage.setItem('recompensaTotal', recompensaTotal);
+        }
+
+        // Función para mostrar la recompensa total al cargar el sitio
+        function mostrarRecompensaTotal() {
+            var recompensaTotal = parseInt(localStorage.getItem('recompensaTotal')) || 0;
+            $('#recompensa-total').text(recompensaTotal);
+        }
+
         // Función para obtener la recompensa diaria
         $(document).ready(function() {
             $('#obtener-recompensa').on('click', function() {
-                console.log('click');
-                var fechaUltimoLogin = localStorage.getItem('fechaUltimoLogin');
-                var currentDate = new Date().toDateString();
+                //var fechaUltimoLogin = localStorage.getItem('fechaUltimoLogin');
+                //var fechaActual = new Date().toDateString();
 
-                if (fechaUltimoLogin === currentDate) {
-                    alert('Ya has reclamado la recompensa de hoy.');
-                } else {
-                    localStorage.setItem('fechaUltimoLogin', currentDate);
-                    var recompensaActual = parseInt(localStorage.getItem('recompensaActual') || 0);
-                    var recompensaMaxima = 5;
+                //if (fechaUltimoLogin === fechaActual) {
+                //    alert('Ya has reclamado la recompensa de hoy.');
+                //} else {
+                //    localStorage.setItem('fechaUltimoLogin', fechaActual);
+                var recompensaObtenida = recompensaAleatoria();
+                var recompensaActual = parseInt($('#recompensa-diaria').text() || 0);
+                var recompensaTotal = parseInt($('#recompensa-total').text() || 0);
 
-                    if (recompensaActual < recompensaMaxima) {
-                        recompensaActual++;
-                        localStorage.setItem('recompensaActual', recompensaActual);
-                        $('#recompensa').text(recompensaActual);
-                        var recompensaObtenida = recompensaAleatoria();
-                        alert('¡Has obtenido ' + recompensaObtenida + 'monedas.');
-                    } else {
-                        alert('Ya has reclamado la recompensa de hoy.');
-                    }
-                }
+                recompensaActual += recompensaObtenida;
+                recompensaTotal += recompensaObtenida;
+
+                $('#recompensa-actual').text(recompensaObtenida);
+
+                almacenarRecompensaTotal(recompensaObtenida);
+                mostrarRecompensaTotal();
+
+                alert('¡Has obtenido ' + recompensaObtenida + ' monedas!');
+                //}
             });
         });
     </script>
-@endsection
 
+    <style>
+        #fondo {
+            background-image: url('{{ asset('images/FondoRecompensas.jpg') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+@endsection
 @section('content')
-    <form id="form-recomensa">
-        <div class="px-4 py-5 my-5 text-center">
-            <h1 class="display-5 fw-bold text-body-emphasis">Sistema de recompensas diarias</h1>
-            <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">Recompensa actual: <span id="recompensa"></span></p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button id="obtener-recompensa" type="button" class="btn btn-primary btn-lg px-4 gap-3">Reclamar
-                        recompensa</button>
+
+    <body>
+        <form id="form-recomensa">
+            <section class="vh-100">
+                <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                                <div class="card-body p-5 text-center">
+
+                                    <h3 class="mb-5">Recompensa Diaria</h3>
+
+                                    <div class="form-outline mb-4">
+                                        <p class="lead mb-4">Recompensa Actual: <span id="recompensa-actual"></span></p>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <p class="lead mb-4">Recompensa Total: <span id="recompensa-total"></span></p>
+                                    </div>
+
+                                    <button id="obtener-recompensa" class="btn btn-primary btn-lg btn-block"
+                                        type="button">Reclamar
+                                        Recompensa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </form>
+            </section>
+        </form>
+    </body>
 @endsection
