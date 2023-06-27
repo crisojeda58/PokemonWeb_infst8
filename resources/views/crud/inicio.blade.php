@@ -34,7 +34,7 @@
           <h1 class="d-flex justify-content-center" style="color: white;">entrenador</h1>
       </div>
       <div class="d-flex justify-content-center mb-3">
-          <a href="#" class="btn btn-dark btn-lg" id="btn">Recompensa diaria</a>
+          <a href="/dailyreward" class="btn btn-dark btn-lg" id="btn">Recompensa diaria</a>
       </div>
       <div class="d-flex justify-content-center mb-3">
           <a href="#" class="btn btn-primary btn-lg" id="btn">Jugar</a>
