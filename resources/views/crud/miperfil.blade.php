@@ -38,6 +38,12 @@
 </style>
 @endsection('style')
 
+@section('script')
+<script>
+  
+</script>
+@endsection('script')
+
 
 @section('content')
   <div id="contenido" >
