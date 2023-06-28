@@ -28,7 +28,7 @@
           <div class="d-flex justify-content-center"><h1>Pokemon Web</h1></div>
       </div>
       <div class="d-flex justify-content-center mb-2">
-          <a href="#" class="btn btn-danger btn-lg" id="btn">Acceder</a>
+          <a href="/login" class="btn btn-danger btn-lg" id="btn">Acceder</a>
       </div>
       <div class="d-flex justify-content-center">
         <a href="#" class="btn btn-success btn-lg" id="btn">Registrarse</a>
