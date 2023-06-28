@@ -50,5 +50,6 @@
       </div>
     </div>
     <img id="entrenador" src="images/Trainer.webp" alt="">
+
   </div>
 @endsection('content')

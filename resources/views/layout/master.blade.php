@@ -3,9 +3,7 @@
 
 
 <head>
-    <title>ListaUsuarios</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProyectoWeb</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
@@ -70,6 +68,6 @@
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary" style="color: White;">About</a></li>
         </ul>
     </footer>
-    
+
 </body>
 </html>
