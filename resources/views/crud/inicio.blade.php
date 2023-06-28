@@ -56,8 +56,8 @@
             <h1 class="d-flex justify-content-center" style="color: white;">Hola de nuevo</h1>
             <h1 class="d-flex justify-content-center" style="color: white;">entrenador</h1>
         </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a href="/dailyreward" class="btn btn-light btn-lg" id="btn">Recompensa diaria</a>
+         <div class="d-flex justify-content-center mb-3">
+          <a href="/dailyreward" class="btn btn-dark btn-lg" id="btn">Recompensa diaria</a>
         </div>
         <div class="d-flex justify-content-center mb-4">
             <a href="/mapa" class="btn btn-success btn-lg" id="btn">Mapa Regional</a>
