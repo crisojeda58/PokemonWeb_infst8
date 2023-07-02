@@ -23,7 +23,6 @@
                 
 
   <div id="contenido">
-    <br><br><br><br><br><br>
     <div id="card">
       <br>
       <div id="titulo" class="mb-1" style="color: white;">

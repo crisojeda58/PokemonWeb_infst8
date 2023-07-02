@@ -45,21 +45,23 @@
 <script>
   $(document).ready(function() {
       $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
+        console.log(json);
+        var id_user = 0;
         var tr = []; 
-          for (var i = 0, i > json.length; i++) {
+          for (var i = 0; i < 1; i++) {
             tr.push('<tr>');
               tr.push('<th>Nombre: </th>');
-              tr.push('<td>' + json[i].Nombre + '</td>');
+              tr.push('<td>' + json[id_user].Nombre + '</td>');
             tr.push('</tr>');
 
             tr.push('<tr>');
               tr.push('<th>Usuario: </th>');
-              tr.push('<td>' + json[i].Usuario + '</td>');
+              tr.push('<td>' + json[id_user].Usuario + '</td>');
             tr.push('</tr>');
             
             tr.push('<tr>');
               tr.push('<th>Correo: </th>');
-              tr.push('<td>' + json[i].Correo + '</td>');
+              tr.push('<td>' + json[id_user].Correo + '</td>');
             tr.push('</tr>');
 
           }
@@ -90,26 +92,6 @@
         <div >
          <table class="table" id="datos_user" style="color: white; border: black">
           <tbody class="mb-3" >
-            <tr>
-              <th scope="col">Nombre:  </th>
-              <td scope="col">Cristian</td>
-            </tr>
-            <tr>
-              <th scope="col">Usuario:  </th>
-              <td scope="col">Cris</td>
-            </tr>
-            <tr>
-              <th scope="col">Correo:  </th>
-              <td scope="col">cris.ojeda.CO@gmail.com</td>
-            </tr>
-            <tr>
-              <th scope="col">Pokemons:  </th>
-              <td scope="col">4</td>
-            </tr>
-            <tr>
-              <th scope="col">Monedas:  </th>
-              <td scope="col">500</td>
-            </tr>
           </tbody>
          </table>
         </div>
