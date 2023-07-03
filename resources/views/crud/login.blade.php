@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="resources\css\login.css">
+    <link rel="stylesheet" type="text/css" href="resources\css\app.css">
     <script src="login.js"></script>
 
 
@@ -19,9 +19,14 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
 
+
+
+
+
     <script>
         $(document).ready(function() {
             var intentos = 0;
+
             $("#btn_login").click(function() {
                 var email = $("#email");
 
@@ -31,9 +36,10 @@
                     intentos++;
                     if (intentos >= 3) {
                         alert("Se ha excedido el número máximo de intentos");
-                        $("#btn_login").prop("disabled",
-                            true);
+                        $("#btn_login").prop("disabled", true);
                     }
+                } else {
+                    $("#mensaje").show();
                 }
             });
 
@@ -44,7 +50,17 @@
         });
     </script>
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <style>
         #ash {
@@ -52,6 +68,7 @@
             right: 60px;
         }
     </style>
+
 
 </head>
 
@@ -63,7 +80,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
-                    <div class="card rounded-3 text-black">
+                    <div class="card rounded-3 text-black" style="background-color: #fcfbf8;">
                         <div class="row g-0">
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
@@ -93,9 +110,13 @@
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                id="btn_login" type="button">Acceder
+                                                id="btn_login" type="button">
+                                                Acceder
                                             </button>
+                                            <div id="mensaje" style="display: none;">Has accedido!</div>
                                         </div>
+
+
 
                                     </form>
 
