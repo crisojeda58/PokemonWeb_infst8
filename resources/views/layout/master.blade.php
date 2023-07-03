@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    
     <style>
         #fondo{
             background-image: URL('images/fondo.jpg');
@@ -17,7 +18,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 1;
         }
     </style>
     @section('style')
@@ -34,7 +34,7 @@
                 <!-- Compañia -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link mb-0 h1" href="/" style="color: white; font-size: large;">Inicio</a>
+                    <a class="nav-link mb-0 h1" href="/inicio" style="color: white; font-size: large;">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-0 h1" href="https://www.pokemon.com/es" target="_blank" style="color: white; font-size: large;">Sitio Oficial</a>

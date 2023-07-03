@@ -29,3 +29,7 @@ Route::get('/dailyreward', function () {
 Route::get('/login', function () {
     return view('crud.login');
 });
+// ruta miPefil
+Route::get('/perfil', function () {
+    return view('crud.miperfil');
+});
