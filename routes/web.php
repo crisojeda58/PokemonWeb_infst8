@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('crud.index');
 });
+Route::get('/inicio', function () {
+    return view('crud.inicio');
+});
+Route::get('/dailyreward', function () {
+    return view('crud.dailyreward');
+});
+// http://test.test/crud/login  Esta es la ruta del login
+Route::get('/login', function () {
+    return view('crud.login');
+});
+// ruta miPefil
+Route::get('/perfil', function () {
+    return view('crud.miperfil');
+});
