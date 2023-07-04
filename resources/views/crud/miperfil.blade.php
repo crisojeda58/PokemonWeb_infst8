@@ -44,8 +44,7 @@
 <script>
   $(document).ready(function() {
       $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
-        console.log(json);
-        var id_user = 1;
+        var id_user = 0;
         var tr = []; 
           for (var i = 0; i < 1; i++) {
             tr.push('<tr>');
