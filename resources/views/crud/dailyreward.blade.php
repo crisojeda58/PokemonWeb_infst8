@@ -4,31 +4,13 @@
     <title>Recompensa Diaria</title>
 
     <script>
-        // Lista de las recompensas
-        var listaRecompensas = [20, 30, 50, 100];
-
-        // Función para obtener una recompensa aleatoria
-        function recompensaAleatoria() {
-            var indice = Math.floor(Math.random() * listaRecompensas.length);
-            return listaRecompensas[indice];
-        }
-
-        // Función para cargar la recompensa total
-        function almacenarRecompensaTotal(recompensaObtenida) {
-            var recompensaTotal = parseInt(localStorage.getItem('recompensaTotal')) || 0;
-            recompensaTotal += recompensaObtenida;
-            localStorage.setItem('recompensaTotal', recompensaTotal);
-        }
-
-        // Función para mostrar la recompensa total al cargar el sitio
-        function mostrarRecompensaTotal() {
-            var recompensaTotal = parseInt(localStorage.getItem('recompensaTotal')) || 0;
-            $('#recompensa-total').text(recompensaTotal);
-        }
-
-        // Función para obtener la recompensa diaria
         $(document).ready(function() {
-            $('#obtener-recompensa').on('click', function() {
+            $('#recompensa-actual').text(0);
+
+
+            $('#obtener-recompensa').click(function() {
+
+                // Obtener la fecha para dar la recompensa
                 var fechaUltimoLogin = localStorage.getItem('fechaUltimoLogin');
                 var fechaActual = new Date().toDateString();
 
@@ -36,21 +18,52 @@
                     alert('Ya has reclamado la recompensa de hoy.');
                 } else {
                     localStorage.setItem('fechaUltimoLogin', fechaActual);
-                    var recompensaObtenida = recompensaAleatoria();
-                    var recompensaActual = parseInt($('#recompensa-diaria').text() || 0);
-                    var recompensaTotal = parseInt($('#recompensa-total').text() || 0);
 
-                    recompensaActual += recompensaObtenida;
-                    recompensaTotal += recompensaObtenida;
+                    //  Verificar al usuario y obtener su ID
+                    $.ajax({
+                        url: 'http://pokemonweb_infst8.test/api/verificar-usuario',
+                        type: 'POST',
+                        success: function(response) {
+                            var id = response.id;
+                            event.preventDefault();
 
-                    $('#recompensa-actual').text(recompensaObtenida);
+                            // Realizar una solicitud para guardar la recompensa del usuario
+                            $.ajax({
+                                url: 'http://pokemonweb_infst8.test/api/guardar-recompensa/' + id,
+                                type: 'POST',
+                                success: function(response) {
+                                    var recompensaObtenida = response.recompensaAleatoria;
+                                    $('#recompensa-actual').text(recompensaObtenida);
 
-                    almacenarRecompensaTotal(recompensaObtenida);
-                    mostrarRecompensaTotal();
+                                    alert('¡Has obtenido ' + response.recompensaAleatoria + ' monedas!');
 
-                    alert('¡Has obtenido ' + recompensaObtenida + ' monedas!');
+                                    mostrarRecompensaTotal();
+                                }
+                            });
+                        },
+                        error: function() {
+                            alert('No se pudo verificar al usuario.');
+                        }
+                    });
+
+                    event.preventDefault();
                 }
             });
+
+            function mostrarRecompensaTotal() {
+                $.ajax({
+                    url: 'http://pokemonweb_infst8.test/api/usuarios/' + id,
+                    type: 'GET',
+                    success: function(response) {
+                        var recompensaTotal = response.Monedas;
+                        $('#recompensa-total').text(recompensaTotal);
+                    },
+                    error: function() {
+                        alert('No se pudo obtener la recompensa total.');
+                    }
+                });
+            }
+            mostrarRecompensaTotal();
         });
     </script>
 
@@ -83,8 +96,7 @@
                                         <p class="lead mb-4">Recompensa Total: <span id="recompensa-total"></span></p>
                                     </div>
 
-                                    <button id="obtener-recompensa" class="btn btn-primary btn-lg btn-block"
-                                        type="button">Reclamar
+                                    <button id="obtener-recompensa" class="btn btn-primary btn-lg btn-block" type="button">Reclamar
                                         Recompensa</button>
                                 </div>
                             </div>
