@@ -52,7 +52,7 @@
 
             function mostrarRecompensaTotal() {
                 $.ajax({
-                    url: 'http://pokemonweb_infst8.test/api/usuarios/', // Reemplazar 1 con el ID del usuario correspondiente
+                    url: 'http://pokemonweb_infst8.test/api/usuarios/' + id,
                     type: 'GET',
                     success: function(response) {
                         var recompensaTotal = response.Monedas;
