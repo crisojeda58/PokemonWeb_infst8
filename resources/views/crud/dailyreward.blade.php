@@ -6,6 +6,7 @@
     <script>
         $(document).ready(function() {
             $('#recompensa-actual').text(0);
+            obtenerRecompensaTotal();
 
 
             $('#obtener-recompensa').click(function() {
@@ -25,7 +26,6 @@
                         type: 'POST',
                         success: function(response) {
                             var id = response.id;
-                            event.preventDefault();
 
                             // Realizar una solicitud para guardar la recompensa del usuario
                             $.ajax({
@@ -37,7 +37,7 @@
 
                                     alert('¡Has obtenido ' + response.recompensaAleatoria + ' monedas!');
 
-                                    mostrarRecompensaTotal();
+                                    obtenerRecompensaTotal();
                                 }
                             });
                         },
@@ -50,20 +50,32 @@
                 }
             });
 
-            function mostrarRecompensaTotal() {
+            function obtenerRecompensaTotal() {
+                //  Verificar al usuario y obtener su ID
                 $.ajax({
-                    url: 'http://pokemonweb_infst8.test/api/usuarios/' + id,
-                    type: 'GET',
+                    url: 'http://pokemonweb_infst8.test/api/verificar-usuario',
+                    type: 'POST',
                     success: function(response) {
-                        var recompensaTotal = response.Monedas;
-                        $('#recompensa-total').text(recompensaTotal);
+                        var id = response.id;
+
+                        // Obtener la cantidad total de monedas del usuario
+                        $.ajax({
+                            url: 'http://pokemonweb_infst8.test/api/usuarios/' + id,
+                            type: 'GET',
+                            success: function(response) {
+                                var recompensaTotal = response.Monedas;
+                                $('#recompensa-total').text(recompensaTotal);
+                            },
+                            error: function() {
+                                alert('No se pudo obtener la recompensa total.');
+                            }
+                        });
                     },
                     error: function() {
-                        alert('No se pudo obtener la recompensa total.');
+                        alert('No se pudo verificar al usuario.');
                     }
                 });
             }
-            mostrarRecompensaTotal();
         });
     </script>
 
