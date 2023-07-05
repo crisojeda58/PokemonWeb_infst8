@@ -35,3 +35,7 @@ Route::get('/pokedex', function () {
 Route::get('/perfil', function () {
     return view('crud.miperfil');
 });
+
+Route::get('/registro', function () {
+    return view('crud.registro');
+});

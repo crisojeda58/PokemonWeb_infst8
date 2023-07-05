@@ -33,7 +33,7 @@
           <a href="/login" class="btn btn-danger btn-lg" id="btn">Acceder</a>
       </div>
       <div class="d-flex justify-content-center">
-        <a href="#" class="btn btn-success btn-lg" id="btn">Registrarse</a>
+        <a href="/registro" class="btn btn-success btn-lg" id="btn">Registrarse</a>
       </div>
     </div>
 @endsection('content')

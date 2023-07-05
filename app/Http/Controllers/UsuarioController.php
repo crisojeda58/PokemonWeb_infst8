@@ -30,7 +30,6 @@ class UsuarioController extends Controller
     {
         $this->validate($request, [ //inputs are not empty or null
             'Nombre' => 'required',
-            'Usuario' => 'required',
             'Contraseña' => 'required',
             'Correo' => 'required',
         ]);
