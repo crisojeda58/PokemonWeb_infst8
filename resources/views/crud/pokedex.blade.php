@@ -7,7 +7,15 @@
     border-radius: 20px;
     padding: 3vh;
     color:black; 
-    width: 180vh;
+    width: 160vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vh;
+  }
+  .dropdown{
+    position: absolute;
+    top: 10vh;
+    left: 178vh;
   }
  </style>
 @endsection
@@ -20,7 +28,7 @@
             var tr = []; 
               for (var i=0 ; i < json.length; i++) {
                 tr.push('<tr>');
-                  tr.push('<td>' + json[i].N + '</td>');
+                  tr.push('<th>' + json[i].N + '</th>');
                   tr.push('<td>' + json[i].Especie + '</td>');
                   tr.push('<td>' + json[i].Descripcion + '</td>');
                   tr.push('<td>' + json[i].Estadisticas + '</td>');
@@ -34,15 +42,26 @@
 @endsection
 
 @section('content')
+    <div class="dropdown" id="OpcionesUsuario">
+      <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Usuario 1
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+        <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+      </ul>
+    </div>
   <div id= "contenido">
+    
     <h2>Pokedex</h2>
     <table class="table" id="tabla_pokedex" >
       <thead>
         <tr>
           <th>N°</th>
-          <th>Pokemon</th>
-          <th>Descripcion</th>
-          <th>Estadisticas</th>
+          <th>POKEMON</th>
+          <th>DESCRIPCION</th>
+          <th>ESTADISTICAS</th>
         </tr>
       </thead>
       <tbody>
