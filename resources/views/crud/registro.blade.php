@@ -6,63 +6,56 @@
         background-color: 	#060606;
         border-radius: 40px;
         width: 60vh;
-        height: 80vh;
+        height: 70vh;
         position: absolute;
-        top: 25vh;
+        top: 20vh;
         left: 75vh;
         color:white;
+        font-size: large;
     }
     .from-control{
         width: 60vh;
         height: 80vh;
     }
 </style>
-
-
-
 @endsection('style')
 
 @section('script')
 
 <script>
     $(document).ready(function(){
+        $("#bt_registro").click(function () {
+            var Nombre = $("#Nombre");
+            var email = $("#email");
+            var Contraseña = $("#Contraseña");
+            var RepetirContra = $("#RepetirContra");
 
-        $('#form-login').submit(function(event){
-            event.preventDefault();
-            $.post("http://pokemonweb_infst8.test/api/usuarios",
-            $("#form-login").serialize())
-            .done(function(data){
-                alert("Se a guardado correctamente");
-                var url = "http://pokemonweb_infst8.test/inicio";
-                $(location).attr('href', url);
-
-                    var Nombre = $("#Nombre");
-                    var email = $("#email");
-                    var Contraseña = $("#Contraseña");
-                    var RepetirContra = $("#RepetirContra");
-
-                    if (Nombre.val() == "") {
-                        //$("#Nombre_help_block").show();
-                        alert("Error en nombre"); 
-                        Nombre.focus();
-                    } else if (Contraseña.val() == "") {
-                        alert("Error en pass");
-                        Contraseña.focus();
-                    } else if (Contraseña.val() != RepetirContra.val()) {
-                        alert("Las contraseñas deben ser iguales");
-                        Contraseña.focus();
-                    } else if (validarEmail(email.val()) == false) {
-                        alert("Correo no valido");
-                        email.focus();
-                    } else {
-                        alert("Guardado Correctamente");
-                        var url = 'http://pokemonweb_infst8.test/';
+            if (Nombre.val() == "") {
+                //$("#Nombre_help_block").show();
+                alert("Error en nombre"); 
+                Nombre.focus();
+            } else if (Contraseña.val() == "") {
+                alert("Error en pass");
+                Contraseña.focus();
+            } else if (RepetirContra.val() != Contraseña) {
+                alert("Las contraseñas deben ser iguales");
+                RepetirContra.focus();
+            } else if (validarEmail(email.val()) == false) {
+                alert("Correo no valido");
+                email.focus();
+            } else {
+                $('#form-login').on("submit",function(event){
+                    event.preventDefault();
+                    $.post("http://pokemonweb_infst8.test/api/usuarios",
+                    $("#form-login").serialize())
+                    .done(function(data){
+                        alert("Se a guardado correctamente");
+                        var url = "http://pokemonweb_infst8.test/login";
                         $(location).attr('href', url);
-                        //$.post("ajax/test.html", function (data) {
-                        var frm_user = $("#frm_user").serialize();
-                        //});
-                    }
-            });
+                    });
+                });
+            }
+
         });
     });
                 
@@ -75,55 +68,13 @@
     }
 </script>
 
-<script>
-   // $(document).ready(function () {
-
-    //     $("#form-login").on("submit",function (evt) { 
-    //             evt.preventDefault();
-    //             var Nombre = $("#Nombre");
-    //             var email = $("#email");
-    //             var Contraseña = $("#Contraseña");
-    //             var RepetirContra = $("#RepetirContra");
-
-    //             if (Nombre.val() == "") {
-    //                 //$("#Nombre_help_block").show();
-    //                 alert("Error en nombre"); 
-    //                 Nombre.focus();
-    //             } else if (Contraseña.val() == "") {
-    //                 alert("Error en pass");
-    //                 Contraseña.focus();
-    //             } else if (Contraseña.val() != RepetirContra.val()) {
-    //                 alert("Las contraseñas deben ser iguales");
-    //                 Contraseña.focus();
-    //             } else if (validarEmail(email.val()) == false) {
-    //                 alert("Correo no valido");
-    //                 email.focus();
-    //             } else {
-    //                 alert("Guardado Correctamente");
-    //                 var url = 'http://pokemonweb_infst8.test/';
-    //                 $(location).attr('href', url);
-    //                 //$.post("ajax/test.html", function (data) {
-    //                 var frm_user = $("#frm_user").serialize();
-    //                 //});
-    //             }
-    //     });
-    // });
-    
-    // function validarEmail(valor) {
-    //         if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-</script>
 @endsection('script')
 
 
 
 @section('content')
 <div id="contenido">
-    <div id="titulo" class="m-3" >
+    <div id="titulo" class="m-4 mb-3" >
         <div class="d-flex justify-content-center">
             <h1>Registro</h1>
         </div>
@@ -145,14 +96,14 @@
             <input type="password" class="form-control" id="Contraseña" name="Contraseña">
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
             <label for="Repetir Contra" class="form-label">Repetir Contraseña</label>
             <input type="password" class="form-control" id="RepetirContra">
         </div>  
 
         <div class="d-flex justify-content-center mb-2">
-            <a href="/" class="btn btn-dark m-2 btn-lg">Cancelar</a>
-            <button  type="submit" class="btn btn-success m-2 btn-lg">Guardar</button>
+            <a href="/" class="btn btn-danger m-2 btn-lg">Cancelar</a>
+            <button  type="submit" id="bt_registro" class="btn btn-success m-2 btn-lg">Registrarme</button>
         </div>
     </form>
     
