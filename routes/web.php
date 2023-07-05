@@ -29,3 +29,6 @@ Route::get('/login', function () {
 Route::get('/mapa', function () {
     return view('crud.mapa');
 });
+Route::get('/ruleta', function () {
+    return view('crud.ruleta');
+});
