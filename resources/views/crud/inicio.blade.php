@@ -63,7 +63,7 @@
             <a href="/mapa" class="btn btn-success btn-lg" id="btn">Mapa Regional</a>
         </div>
         <div class="d-flex justify-content-center mb-4">
-            <a href="#" class="btn btn-danger btn-lg" id="btn">Pokedex</a>
+            <a href="/pokedex" class="btn btn-danger btn-lg" id="btn">Pokedex</a>
         </div>
         <div class="d-flex justify-content-center">
             <a href="#" class="btn btn-warning btn-lg" id="btn">Inventario</a>

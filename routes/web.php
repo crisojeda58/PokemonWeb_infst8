@@ -22,9 +22,14 @@ Route::get('/inicio', function () {
 Route::get('/dailyreward', function () {
     return view('crud.dailyreward');
 });
-// http://test.test/crud/login  Esta es la ruta del login
 Route::get('/login', function () {
     return view('crud.login');
+});
+Route::get('/mapa', function () {
+    return view('crud.mapa');
+});
+Route::get('/pokedex', function () {
+    return view('crud.pokedex');
 });
 // ruta miPefil
 Route::get('/perfil', function () {
