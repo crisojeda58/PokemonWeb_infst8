@@ -86,7 +86,7 @@ class UsuarioController extends Controller
      */
     public function destroy(string $id)
     {
-        $usuario = Usuario::findorFail($id); //searching for object in database using ID
+        $usuario = Usuarios::findorFail($id); //searching for object in database using ID
         if($usuario->delete()){ //deletes the object
           return 'deleted successfully'; //shows a message when the delete operation was successful.
         }
