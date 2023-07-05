@@ -29,3 +29,6 @@ Route::get('/login', function () {
 Route::get('/mapa', function () {
     return view('crud.mapa');
 });
+Route::get('/pokedex', function () {
+    return view('crud.pokedex');
+});
