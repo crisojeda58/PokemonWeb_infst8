@@ -39,3 +39,9 @@ Route::get('/perfil', function () {
 Route::get('/registro', function () {
     return view('crud.registro');
 });
+
+Route::get('/editarPerfil', function () {
+    return view('crud.editProfile');
+});
+
+

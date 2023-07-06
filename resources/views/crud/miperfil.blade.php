@@ -51,11 +51,6 @@
               tr.push('<th>Nombre: </th>');
               tr.push('<td>' + json[id_user].Nombre + '</td>');
             tr.push('</tr>');
-
-            tr.push('<tr>');
-              tr.push('<th>Usuario: </th>');
-              tr.push('<td>' + json[id_user].Usuario + '</td>');
-            tr.push('</tr>');
             
             tr.push('<tr>');
               tr.push('<th>Correo: </th>');
@@ -116,7 +111,7 @@
         
         <div class="d-grid gap-2 d-md-block m-2">
             <a href="/inicio" class="btn btn-success" style="color: black" id="btn" type="button">Vover</a>  
-            <a href="#" class="btn btn-info" id="btn" type="button">Editar</a>
+            <a href="/editarPerfil" class="btn btn-info" id="btn" type="button">Editar</a>
         </div>
       </div>
       <img id="Darkrai" src="images/Darkrai.webp" alt="">

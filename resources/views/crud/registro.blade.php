@@ -31,28 +31,28 @@
             var RepetirContra = $("#RepetirContra");
 
             if (Nombre.val() == "") {
-                //$("#Nombre_help_block").show();
-                alert("Error en nombre"); 
+                alert("Debe escribir su nombre"); 
                 Nombre.focus();
-            } else if (Contraseña.val() == "") {
-                alert("Error en pass");
-                Contraseña.focus();
-            } else if (RepetirContra.val() != Contraseña) {
-                alert("Las contraseñas deben ser iguales");
-                RepetirContra.focus();
             } else if (validarEmail(email.val()) == false) {
                 alert("Correo no valido");
                 email.focus();
+            } else if (Contraseña.val() == "") {
+                alert("Debe escribir una contraseña");
+                Contraseña.focus();
+            } else if (RepetirContra.val() != Contraseña.val()) {
+                alert("Las contraseñas deben ser iguales");
+                RepetirContra.focus();
             } else {
                 $('#form-login').on("submit",function(event){
                     event.preventDefault();
-                    $.post("http://pokemonweb_infst8.test/api/usuarios",
-                    $("#form-login").serialize())
-                    .done(function(data){
-                        alert("Se a guardado correctamente");
-                        var url = "http://pokemonweb_infst8.test/login";
-                        $(location).attr('href', url);
-                    });
+                    alert("funciona");
+                //    $.post("http://pokemonweb_infst8.test/api/usuarios",
+                //    $("#form-login").serialize())
+                //    .done(function(data){
+                //        alert("Se a guardado correctamente");
+                //        var url = "http://pokemonweb_infst8.test/login";
+                //        $(location).attr('href', url);
+                //    });
                 });
             }
 
