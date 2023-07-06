@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/login', 'LoginController@login')->name('login');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

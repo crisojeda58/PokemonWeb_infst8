@@ -2,49 +2,76 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="resources\css\login.css">
-    <script src="login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
     </script>
+
 
     <script>
         $(document).ready(function() {
+            var maxIntentos = 3;
             var intentos = 0;
-            $("#btn_login").click(function() {
-                var email = $("#email");
+            $('#btn_login').click(function(event) {
+                event.preventDefault();
 
-                if (validarEmail(email.val()) == false) {
-                    alert("Error en el email de usuario");
+
+                var email = $("#email").val();
+                var password = $("#passwordInput").val();
+
+                if (email == "") {
+                    alert("Ingrese su usuario");
                     email.focus();
-                    intentos++;
-                    if (intentos >= 3) {
-                        alert("Se ha excedido el número máximo de intentos");
-                        $("#btn_login").prop("disabled",
-                            true);
-                    }
+                } else if (password == "") {
+                    alert("Ingrese su password");
+                    password.focus();
+                } else {
+                    $.getJSON('http://test.test/api/Usuarios', function(json) {
+                        for (var i = 0; i < json.length; i++) {
+                            if (email.toLowerCase() == json[i].Correo.toLowerCase()) {
+                                if (password == json[i].Contrasena) {
+                                    window.location.href = "http://test.test/inicio";
+                                } else {
+                                    intentos++;
+                                    if (intentos >= maxIntentos) {
+                                        // Se han superado los intentos máximos, redirigir a otra página
+                                        window.location.href = "http://google.com/";
+                                    } else {
+                                        alert("Contraseña incorrecta. Intento " + intentos +
+                                            " de " + maxIntentos);
+                                    }
+                                }
+                            }
+                        }
+                    });
                 }
             });
-
-            function validarEmail(email) {
-                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
         });
     </script>
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <style>
         #ash {
@@ -52,6 +79,7 @@
             right: 60px;
         }
     </style>
+
 
 </head>
 
@@ -63,7 +91,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
-                    <div class="card rounded-3 text-black">
+                    <div class="card rounded-3 text-black" style="background-color: #fcfbf8;">
                         <div class="row g-0">
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
@@ -93,9 +121,13 @@
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                id="btn_login" type="button">Acceder
+                                                id="btn_login" type="button">
+                                                Acceder
                                             </button>
+                                            <div id="mensaje" style="display: none;">Has accedido!</div>
                                         </div>
+
+
 
                                     </form>
 

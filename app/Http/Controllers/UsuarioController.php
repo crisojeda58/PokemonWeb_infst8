@@ -33,7 +33,7 @@ class UsuarioController extends Controller
             'Contraseña' => 'required',
             'Correo' => 'required',
         ]);
-  
+
         $usuario = new Usuarios;
         $usuario->Nombre = $request->input('Nombre'); //retrieving user inputs
         $usuario->Usuario = $request->input('Usuario');
@@ -48,7 +48,7 @@ class UsuarioController extends Controller
      */
     public function show(string $id)
     {
-        return Usuarios::findorFail($id); 
+        return Usuarios::findorFail($id);
     }
 
     /**
@@ -70,13 +70,13 @@ class UsuarioController extends Controller
             'Contraseña' => 'required',
             'Correo' => 'required',
         ]);
-  
+
         $usuario = Usuarios::findorFail($id); // uses the id to search values that need to be updated.
         $usuario->Nombre = $request->input('Nombre'); //retrieving user inputs
         $usuario->Usuario = $request->input('Usuario');
         $usuario->Contraseña = $request->input('Contraseña');
         $usuario->Correo = $request->input('Correo');
-        $usuario->save();//saves the values in the database. The existing data is overwritten.
+        $usuario->save(); //saves the values in the database. The existing data is overwritten.
         return $usuario;
     }
 
@@ -86,8 +86,9 @@ class UsuarioController extends Controller
     public function destroy(string $id)
     {
         $usuario = Usuarios::findorFail($id); //searching for object in database using ID
-        if($usuario->delete()){ //deletes the object
-          return 'deleted successfully'; //shows a message when the delete operation was successful.
+        if ($usuario->delete()) { //deletes the object
+            return 'deleted successfully'; //shows a message when the delete operation was successful.
+
         }
     }
 }
