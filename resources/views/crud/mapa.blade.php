@@ -137,8 +137,25 @@
   </style>
 @endsection('style')
 
+@section ('script')
+ <script>
+   function mostrarContenedorChat(ubicacion) {
+      var contenedorChat = document.getElementById("contenidoChat");
+      var contenedorUsuarios = document.getElementById("contenedorUsuarios");
+      var tituloChat = document.getElementById("tituloChat");
+
+      tituloChat.innerText = "Chat" + ubicacion;
+
+      contenedorChat.style.display = "block";
+      contenedorUsuarios.style.display = "block";
+     
+    } 
+  </script>
+ 
+@endsection('script')
 
 @section('content')
+  
   <div id="contenido">
     <!--Contenido del contenedor derecho-->
     <div id ="contenedorDerecha">
@@ -159,18 +176,21 @@
     <div id="contenidoChat">
     <div id ="caja-chat">
         <div id ="chat">
+          
           <div id="datos-chat">
             <h3 id="tituloChat"class="d-flex justify-content-center"style=" border-bottom: 1px solid silver;">Chat </h3>
-            <span style="color: #26C6DA;">Jenny:</span>
-            <span> hola como estas</span>
+            <span style="color: #26C6DA;">usuario:</span>
+            <span> mensaje</span>
             <span style="float: right;">10:04 pm </span>
           </div>
+        
         </div>
       </div>
-      <form method="POST" action= "mapa.blade.php">  
-       <textarea name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
-       <input type="submit" name="enviar" value="Enviar">
+      <form method="POST" >  
+       <textarea id="mensaje" name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
+       <input type="submit" name="enviar" value="Enviar"></input>
       </form>
+      
     </div>
     <!--Contenido del Chat FN-->
 
@@ -215,18 +235,5 @@
        </div>
 
    </div>
-   <script>
-    function mostrarContenedorChat(ubicacion) {
-      var contenedorChat = document.getElementById("contenidoChat");
-      var contenedorUsuarios = document.getElementById("contenedorUsuarios");
-      var tituloChat = document.getElementById("tituloChat");
-
-      tituloChat.innerText = "Chat" + ubicacion;
-
-      contenedorChat.style.display = "block";
-      contenedorUsuarios.style.display = "block";
-     
-    }
-    
-  </script>
+   
 @endsection('content')
