@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MapaController;
 use App\Http\Controllers\PokedexController;
+use App\Http\Controllers\RecompensaController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -25,4 +26,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('items', ItemController::class);
 Route::resource('mapas', MapaController::class);
 Route::resource('pokedexes', PokedexController::class);
+
 Route::resource('Usuarios', UsuarioController::class);
+
+
+Route::post('verificar-usuario', [RecompensaController::class, 'verificarUsuario']);
+Route::post('guardar-recompensa/{id}', [RecompensaController::class, 'guardarRecompensa']);
+Route::get('usuarios/{id}', [RecompensaController::class, 'obtenerRecompensaTotal']);
+

@@ -34,7 +34,7 @@
                 <!-- Compañia -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link mb-0 h1" href="/inicio" style="color: white; font-size: large;">Inicio</a>
+                    <a class="nav-link mb-0 h1" href="/inicio" style="color: white; font-size: large;" disabled>Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-0 h1" href="https://www.pokemon.com/es" target="_blank" style="color: white; font-size: large;">Sitio Oficial</a>

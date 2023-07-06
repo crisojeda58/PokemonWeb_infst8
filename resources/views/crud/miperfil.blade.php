@@ -25,7 +25,6 @@
     top: 3vh;
     left: 3vh;
     color: white;
-    font-size: large;
   }
   .dropdown{
     position: absolute;
@@ -36,7 +35,7 @@
     width: 18vh;
   }
   table{
-    width: 10vh;
+    width: 11vh;
   }
 </style>
 @endsection('style')
@@ -45,21 +44,37 @@
 <script>
   $(document).ready(function() {
       $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
+        var id_user = 0;
         var tr = []; 
-          for (var i = 0, i > json.length; i++) {
+          for (var i = 0; i < 1; i++) {
             tr.push('<tr>');
               tr.push('<th>Nombre: </th>');
-              tr.push('<td>' + json[i].Nombre + '</td>');
-            tr.push('</tr>');
-
-            tr.push('<tr>');
-              tr.push('<th>Usuario: </th>');
-              tr.push('<td>' + json[i].Usuario + '</td>');
+              tr.push('<td>' + json[id_user].Nombre + '</td>');
             tr.push('</tr>');
             
             tr.push('<tr>');
               tr.push('<th>Correo: </th>');
-              tr.push('<td>' + json[i].Correo + '</td>');
+              tr.push('<td>' + json[id_user].Correo + '</td>');
+            tr.push('</tr>');
+
+            tr.push('<tr>');
+              tr.push('<th>Inventario: </th>');
+              tr.push('<td>' + json[id_user].Items + '</td>');
+            tr.push('</tr>');
+
+            tr.push('<tr>');
+              tr.push('<th>Pokemons: </th>');
+              tr.push('<td>' + json[id_user].Pokemons + '</td>');
+            tr.push('</tr>');
+
+            tr.push('<tr>');
+              tr.push('<th>Monedas: </th>');
+              tr.push('<td>' + json[id_user].Monedas + '</td>');
+            tr.push('</tr>');
+
+            tr.push('<tr>');
+              tr.push('<th>Ultimo Acceso: </th>');
+              tr.push('<td>' + json[id_user].ultima_conexion + '</td>');
             tr.push('</tr>');
 
           }
@@ -84,39 +99,19 @@
     </div>
     <div id="lateral_izq">
       <div id="elementos" class="m-2">
-        <div id="titulo" class="r m-2 mb-5">
+        <div id="titulo" class="r m-2 mb-4">
             <h1 class="d-flex justify-content-center" style="color: white;">Mi Perfil</h1>
         </div>
         <div >
-         <table class="table" id="datos_user" style="color: white; border: black">
-          <tbody class="mb-3" >
-            <tr>
-              <th scope="col">Nombre:  </th>
-              <td scope="col">Cristian</td>
-            </tr>
-            <tr>
-              <th scope="col">Usuario:  </th>
-              <td scope="col">Cris</td>
-            </tr>
-            <tr>
-              <th scope="col">Correo:  </th>
-              <td scope="col">cris.ojeda.CO@gmail.com</td>
-            </tr>
-            <tr>
-              <th scope="col">Pokemons:  </th>
-              <td scope="col">4</td>
-            </tr>
-            <tr>
-              <th scope="col">Monedas:  </th>
-              <td scope="col">500</td>
-            </tr>
+         <table class="table" id="datos_user" style="color: white; border: grey">
+          <tbody >
           </tbody>
          </table>
         </div>
         
         <div class="d-grid gap-2 d-md-block m-2">
             <a href="/inicio" class="btn btn-success" style="color: black" id="btn" type="button">Vover</a>  
-            <a href="#" class="btn btn-info" id="btn" type="button">Editar</a>
+            <a href="/editarPerfil" class="btn btn-info" id="btn" type="button">Editar</a>
         </div>
       </div>
       <img id="Darkrai" src="images/Darkrai.webp" alt="">

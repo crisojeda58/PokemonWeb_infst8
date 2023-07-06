@@ -30,7 +30,6 @@ class UsuarioController extends Controller
     {
         $this->validate($request, [ //inputs are not empty or null
             'Nombre' => 'required',
-            'Usuario' => 'required',
             'Contraseña' => 'required',
             'Correo' => 'required',
         ]);
@@ -89,6 +88,7 @@ class UsuarioController extends Controller
         $usuario = Usuarios::findorFail($id); //searching for object in database using ID
         if ($usuario->delete()) { //deletes the object
             return 'deleted successfully'; //shows a message when the delete operation was successful.
+
         }
     }
 }
