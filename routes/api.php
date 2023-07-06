@@ -25,4 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('items', ItemController::class);
 Route::resource('mapas', MapaController::class);
 Route::resource('pokedexes', PokedexController::class);
-Route::resource('usuarios', UsuarioController::class);
+Route::resource('Usuarios', UsuarioController::class);
