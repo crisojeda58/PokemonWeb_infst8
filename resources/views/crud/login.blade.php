@@ -71,8 +71,8 @@
         #ashfinal {
             position: relative;
             right: 60px;
-            width: 100px;
-            height: 50px;
+            width: 20px;
+            height: 700px;
         }
     </style>
 
