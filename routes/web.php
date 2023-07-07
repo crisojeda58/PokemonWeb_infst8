@@ -29,3 +29,25 @@ Route::get('/login', function () {
 Route::get('/mapa', function () {
     return view('crud.mapa');
 });
+<<<<<<< Updated upstream
+=======
+Route::get('/pokedex', function () {
+    return view('crud.pokedex');
+});
+// ruta miPefil
+Route::get('/perfil', function () {
+    return view('crud.miperfil');
+});
+
+Route::get('/registro', function () {
+    return view('crud.registro');
+});
+
+Route::get('/editarPerfil', function () {
+    return view('crud.editProfile');
+});
+
+Route::get('/inventario', function () {
+    return view('crud.inventario');
+});
+>>>>>>> Stashed changes

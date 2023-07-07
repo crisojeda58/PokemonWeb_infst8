@@ -66,7 +66,7 @@
             <a href="#" class="btn btn-danger btn-lg" id="btn">Pokedex</a>
         </div>
         <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-warning btn-lg" id="btn">Inventario</a>
+            <a href="/inventario" class="btn btn-warning btn-lg" id="btn">Inventario</a>
         </div>
       </div>
       <img id="entrenador" src="images/Trainer.webp" alt="">
