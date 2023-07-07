@@ -179,7 +179,7 @@
      
     </div>
     <!--Contenido de Usuarios Conectados-->
-    <div id ="contenedorUsuarios">
+    <div id ="contenedorUsuarios" style="color: black;">
       <h3 id ="tituloUsuarios"  class="m-3 d-flex justify-content-center" style=" border-bottom: 1px solid silver;"> Usuarios Conectados</h3>
       <div id="listadoUsuarios">
       <li>Cristian</li>
@@ -190,12 +190,12 @@
     <!--Contenido de Usuarios Conectados FN-->
 
     <!--Contenido del Chat-->
-    <div id="contenidoChat">
+    <div id="contenidoChat" style="color: black;">
     <div id ="caja-chat">
         <div id ="chat">
           
           <div id="datos-chat">
-            <h3 id="tituloChat"class="d-flex justify-content-center"style=" border-bottom: 1px solid silver;">Chat </h3>
+            <h3 id="tituloChat"class="d-flex justify-content-center" style=" border-bottom: 1px solid silver;">Chat </h3>
             <span style="color: #26C6DA;">usuario:</span>
             <span> mensaje</span>
             <span style="float: right;">10:04 pm </span>
