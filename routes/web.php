@@ -31,6 +31,9 @@ Route::get('/login', function () {
 Route::get('/mapa', function () {
     return view('crud.mapa');
 });
+Route::get('/ruleta', function () {
+    return view('crud.ruleta');
+});
 Route::get('/pokedex', function () {
     return view('crud.pokedex');
 });
@@ -46,6 +49,3 @@ Route::get('/registro', function () {
 Route::get('/editarPerfil', function () {
     return view('crud.editProfile');
 });
-
-
-
