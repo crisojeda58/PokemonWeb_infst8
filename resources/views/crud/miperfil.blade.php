@@ -90,11 +90,11 @@
     <br>
     <div class="dropdown" id="OpcionesUsuario">
       <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Usuario 1
+        Cristian
       </a>
 
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
       </ul>
     </div>
     <div id="lateral_izq">

@@ -1,62 +1,61 @@
-<!DOCTYPE html>
-<html>
+@extends('layout.master')
 
-<head>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
-    </script>
+@section('script')
+<script>
+    $(document).ready(function() {
+        var maxIntentos = 3;
+        var intentos = 0;
+        $('#btn_login').click(function(event) {
+            event.preventDefault();
 
 
-    <script>
-        $(document).ready(function() {
-            var maxIntentos = 3;
-            var intentos = 0;
-            $('#btn_login').click(function(event) {
-                event.preventDefault();
+            var email = $("#email").val();
+            var password = $("#passwordInput").val();
 
-
-                var email = $("#email").val();
-                var password = $("#passwordInput").val();
-
-                if (email == "") {
-                    alert("Ingrese su usuario");
-                    email.focus();
-                } else if (password == "") {
-                    alert("Ingrese su password");
-                    password.focus();
-                } else {
-                    $.getJSON('http://test.test/api/Usuarios', function(json) {
-                        for (var i = 0; i < json.length; i++) {
-                            if (email.toLowerCase() == json[i].Correo.toLowerCase()) {
-                                if (password == json[i].Contrasena) {
-                                    window.location.href = "http://test.test/inicio";
-                                } else {
-                                    intentos++;
-                                    if (intentos >= maxIntentos) {
-                                        // Se han superado los intentos máximos, redirigir a otra página
-                                        window.location.href = "http://google.com/";
-                                    } else {
-                                        alert("Contraseña incorrecta. Intento " + intentos +
-                                            " de " + maxIntentos);
-                                    }
+            if (email == "") {
+                alert("Ingrese su email");
+                email.focus();
+            } else if (password == "") {
+                alert("Ingrese su contraseña");
+                password.focus();
+            } else {
+                $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
+                    for (var i = 0; i < json.length; i++) {
+                        if (email.toLowerCase() == json[i].Correo.toLowerCase()) {
+                            if (password == json[i].Contrasena) {
+                                window.location.href = "http://pokemonweb_infst8.test/inicio";
+                                alert("Bienvenido de vuelta");
+                            } else {
+                                intentos++;
+                                if (intentos >= maxIntentos) {
+                                    // Se han superado los intentos máximos, redirigir a otra página
+                                    alert("Ha superado el numero de intentos");
+                                    window.location.href = "http://pokemonweb_infst8.test/";
+                                    alert("contraseña incorrecta");
                                 }
                             }
                         }
-                    });
-                }
-            });
+                    }
+                });
+            }
         });
-    </script>
+    });
+</script>
+@endsection('script')
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@section('style')
     <style>
         body {
             font-family: "Lato", sans-serif;
@@ -70,33 +69,17 @@
             right: 60px;
             width: 20px;
             height: 700px;
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <style>
+        }
         #ash {
             position: relative;
             right: 60px;
         }
     </style>
+@endsection('style')
 
-
-</head>
-
-<body>
-
+@section('content')
     <!-- Forma de poner una imagen de fondo en web =) -->
     <section class="h-100 gradient-form" style="background-image: url('images/fondo5.jpg');">
-
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -158,7 +141,4 @@
             </div>
         </div>
     </section>
-
-</body>
-
-</html>
+ @endsection('content')

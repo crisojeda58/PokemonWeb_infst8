@@ -133,7 +133,11 @@
       width: 8.3vh;
       height: 5vh;
     }
-    
+    .dropdown{
+      position: absolute;
+      top: 8vh;
+      left: 176vh;
+    }
   </style>
 @endsection('style')
 
@@ -155,8 +159,21 @@
 @endsection('script')
 
 @section('content')
-  
   <div id="contenido">
+    <div id="contenedor">  
+    <div id="TituloMapa" class ="m-3" style="color: white;">
+  
+<div class="dropdown" id="OpcionesUsuario">
+      <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cristian
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
+      </ul>
+    </div>  
+<div id="contenido">
     <!--Contenido del contenedor derecho-->
     <div id ="contenedorDerecha">
      
@@ -165,9 +182,9 @@
     <div id ="contenedorUsuarios">
       <h3 id ="tituloUsuarios"  class="m-3 d-flex justify-content-center" style=" border-bottom: 1px solid silver;"> Usuarios Conectados</h3>
       <div id="listadoUsuarios">
-      <li>Usuario 1</li>
-      <li>Usuario 2</li>
-      <li>Usuario 3</li>
+      <li>Cristian</li>
+      <li>Santos</li>
+      <li>Luciano</li>
       </div>
     </div>
     <!--Contenido de Usuarios Conectados FN-->

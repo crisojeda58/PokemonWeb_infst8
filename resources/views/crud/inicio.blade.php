@@ -42,12 +42,11 @@
     <br>
     <div class="dropdown" id="OpcionesUsuario">
       <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Usuario 1
+        Cristian
       </a>
-
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
-        <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
       </ul>
     </div>
     <div id="lateral_izq">
@@ -60,7 +59,7 @@
           <a href="/dailyreward" class="btn btn-dark btn-lg" id="btn">Recompensa diaria</a>
         </div>
         <div class="d-flex justify-content-center mb-3">
-            <a href="#" class="btn btn-light btn-lg" id="btn">Ruleta</a>
+            <a href="/ruleta" class="btn btn-light btn-lg" id="btn">Ruleta</a>
         </div>
         <div class="d-flex justify-content-center mb-3">
             <a href="/mapa" class="btn btn-success btn-lg" id="btn">Mapa Regional</a>

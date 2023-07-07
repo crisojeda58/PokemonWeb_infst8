@@ -42,20 +42,18 @@
             } else if (RepetirContra.val() != Contraseña.val()) {
                 alert("Las contraseñas deben ser iguales");
                 RepetirContra.focus();
-            } else {
-                $('#form-login').on("submit",function(event){
-                    event.preventDefault();
-                    alert("funciona");
-                //    $.post("http://pokemonweb_infst8.test/api/usuarios",
-                //    $("#form-login").serialize())
-                //    .done(function(data){
-                //        alert("Se a guardado correctamente");
-                //        var url = "http://pokemonweb_infst8.test/login";
-                //        $(location).attr('href', url);
-                //    });
-                });
-            }
+            } 
 
+            $('#form_registro').submit(function(){
+                event.preventDefault();
+                $.post("http://pokemonweb_infst8.test/api/usuarios",
+                    $("#form_registro").serialize())
+                    .done(function(data){
+                        alert("Se a guardado correctamente");
+                        var url = "http://pokemonweb_infst8.test/login";
+                        $(location).attr('href', url);
+                });
+            });
         });
     });
                 
@@ -80,7 +78,7 @@
         </div>
     </div>
 
-    <form class="m-4" id="form-login">
+    <form class="m-4" id="form_registro">
         <div class="mb-2">
             <label for="Nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="Nombre" name="Nombre">

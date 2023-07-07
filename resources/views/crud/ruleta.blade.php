@@ -4,50 +4,60 @@
 <style type="text/css">
     text{
         font-family:Helvetica, Arial, sans-serif;
-        font-size:11px;
+        font-size: x-large;
         pointer-events:none;
     }
     #chart{
-        position:absolute;
-        width:500px;
-        height:500px;
-        top:0;
-        left:0;
+        position: absolute;
+        width:110vh;
+        height:75vh;
+        top:10vh;
+        left:35vh;
+        background: #CCD1D1 ;
+        padding:2vh;
+        border-radius: 40px;
     }
     #question{
         position: absolute;
         width:400px;
         height:500px;
         top:0;
-        left:520px;
+        left:97vh;
     }
     #question h1{
-        color: white;
+        color: black;
         font-size: 50px;
         font-weight: bold;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         position: absolute;
-        padding: 0;
+        padding: 0vh;
         margin: 0;
         top:50%;
         -webkit-transform:translate(0,-50%);
                 transform:translate(0,-50%);
     }
+    .dropdown{
+            position: absolute;
+            top: 10vh;
+            left: 170vh;
+        }
+
 </style>
 @endsection('style')
 
 @section('content')
-<!DOCTYPE html>
-<html>
+<div class="dropdown" id="OpcionesUsuario">
+      <a class="btn btn-dark dropdown-toggle btn-lg" id="idUs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cristian
+      </a>
 
-<head>
-  <meta charset="utf-8">
-  <title>Rueda de la Fortuna</title>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
+      </ul>
+</div>
+  <div id="chart" class="h1">Rueda de la Fortuna</div>
 
-</head>
-
-<body>
-  <div id="chart">Rueda de la Fortuna</div>
   <div id="question">
     <h1> </h1>
   </div>
@@ -55,8 +65,8 @@
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
     var padding = {
-        top: 20,
-        right: 40,
+        top: 40,
+        right: 0,
         bottom: 0,
         left: 0
       },
@@ -113,7 +123,7 @@
         "question": "Te ganaste unas Mancuernas"
       },
       {
-        "label": "Ratata",
+        "label": "Rattata",
         "value": 1,
         "question": "Te ganaste un Ratata"
       }
@@ -245,8 +255,5 @@
       return array;
     }
   </script>
-</body>
-
-</html>
 @endsection('content')
 

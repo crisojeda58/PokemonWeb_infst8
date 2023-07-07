@@ -29,9 +29,9 @@
               for (var i=0 ; i < json.length; i++) {
                 tr.push('<tr>');
                   tr.push('<th>' + json[i].N + '</th>');
-                  tr.push('<td>' + json[i].Especie + '</td>');
+                  tr.push('<th>' + json[i].Especie + '</th>');
                   tr.push('<td>' + json[i].Descripcion + '</td>');
-                  tr.push('<td>' + json[i].Estadisticas + '</td>');
+                  tr.push('<th>' + json[i].Estadisticas + '</th>');
                 tr.push('</tr>');
               }
               
@@ -44,7 +44,9 @@
 @section('content')
     <div class="dropdown" id="OpcionesUsuario">
       <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Usuario 1
+
+        Cristian
+
       </a>
 
       <ul class="dropdown-menu">
@@ -55,7 +57,7 @@
   <div id= "contenido">
     
     <h2>Pokedex</h2>
-    <table class="table" id="tabla_pokedex" >
+    <table class="table" id="tabla_pokedex" style="font-size=x-large;">
       <thead>
         <tr>
           <th>N°</th>
