@@ -32,12 +32,16 @@ class ItemController extends Controller
             'Nombre' => 'required',
             'Description' => 'required',
             'Cantidad' => 'required',
+            'Ataque' => 'required',
+            'Defensa' => 'required',
         ]);
   
         $item = new Items;
         $item->Nombre = $request->input('Nombre'); //retrieving user inputs
         $item->Description = $request->input('Description');
-        $item->Cantidad = $request->input('Cantidad');  //retrieving user inputs
+        $item->Cantidad = $request->input('Cantidad');
+        $item->Ataque = $request->input('Ataque');
+        $item->Defensa = $request->input('Defensa');  //retrieving user inputs
         $item->save(); //storing values as an object
         return $item;
     }
@@ -67,12 +71,16 @@ class ItemController extends Controller
             'Nombre' => 'required',
             'Description' => 'required',
             'Cantidad' => 'required',
+            'Ataque' => 'required',
+            'Defensa' => 'required',
         ]);
   
         $item = Items::findorFail($id); // uses the id to search values that need to be updated.
         $item->Nombre = $request->input('Nombre'); //retrieves user input
         $item->Description = $request->input('Description');
-        $item->Cantidad = $request->input('Cantidad');////retrieves user input
+        $item->Cantidad = $request->input('Cantidad');
+        $item->Ataque = $request->input('Ataque');
+        $item->Defensa = $request->input('Defensa');////retrieves user input
         $item->save();//saves the values in the database. The existing data is overwritten.
         return $item;
     }

@@ -88,7 +88,6 @@ class UsuarioController extends Controller
         $usuario = Usuarios::findorFail($id); //searching for object in database using ID
         if ($usuario->delete()) { //deletes the object
             return 'deleted successfully'; //shows a message when the delete operation was successful.
-
         }
     }
 }
