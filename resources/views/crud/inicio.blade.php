@@ -42,12 +42,17 @@
     <br>
     <div class="dropdown" id="OpcionesUsuario">
       <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Usuario 1
+        Cristian
       </a>
 
       <ul class="dropdown-menu">
+<<<<<<< Updated upstream
         <li><a class="dropdown-item" href="#">Editar perfil</a></li>
         <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+=======
+        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
+>>>>>>> Stashed changes
       </ul>
     </div>
     <div id="lateral_izq">
@@ -59,7 +64,14 @@
         <div class="d-flex justify-content-center mb-4">
             <a href="/dailyreward" class="btn btn-light btn-lg" id="btn">Recompensa diaria</a>
         </div>
+<<<<<<< Updated upstream
         <div class="d-flex justify-content-center mb-4">
+=======
+        <div class="d-flex justify-content-center mb-3">
+            <a href="/ruleta" class="btn btn-light btn-lg" id="btn">Ruleta</a>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+>>>>>>> Stashed changes
             <a href="/mapa" class="btn btn-success btn-lg" id="btn">Mapa Regional</a>
         </div>
         <div class="d-flex justify-content-center mb-4">

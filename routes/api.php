@@ -26,3 +26,11 @@ Route::resource('items', ItemController::class);
 Route::resource('mapas', MapaController::class);
 Route::resource('pokedexes', PokedexController::class);
 Route::resource('usuarios', UsuarioController::class);
+<<<<<<< Updated upstream
+=======
+
+Route::post('verificar-usuario', [RecompensaController::class, 'verificarUsuario']);
+Route::post('guardar-recompensa/{id}', [RecompensaController::class, 'guardarRecompensa']);
+Route::get('usuarios/{id}', [RecompensaController::class, 'obtenerRecompensaTotal']);
+
+>>>>>>> Stashed changes

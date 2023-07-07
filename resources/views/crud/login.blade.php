@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layout.master')
 
+<<<<<<< Updated upstream
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,6 +18,89 @@
 
 <body>
     <section class="h-100 gradient-form" style="background-color: #eee;">
+=======
+@section('script')
+<script>
+    $(document).ready(function() {
+        var maxIntentos = 3;
+        var intentos = 0;
+        $('#btn_login').click(function(event) {
+            event.preventDefault();
+
+
+            var email = $("#email").val();
+            var password = $("#passwordInput").val();
+
+            if (email == "") {
+                alert("Ingrese su email");
+                email.focus();
+            } else if (password == "") {
+                alert("Ingrese su contraseña");
+                password.focus();
+            } else {
+                $.getJSON('http://pokemonweb_infst8.test/api/usuarios', function(json) {
+                    for (var i = 0; i < json.length; i++) {
+                        if (email.toLowerCase() == json[i].Correo.toLowerCase()) {
+                            if (password == json[i].Contrasena) {
+                                window.location.href = "http://pokemonweb_infst8.test/inicio";
+                                alert("Bienvenido de vuelta");
+                            } else {
+                                intentos++;
+                                if (intentos >= maxIntentos) {
+                                    // Se han superado los intentos máximos, redirigir a otra página
+                                    alert("Ha superado el numero de intentos");
+                                    window.location.href = "http://pokemonweb_infst8.test/";
+                                    alert("contraseña incorrecta");
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+@endsection('script')
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@section('style')
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background-image: url('{{ asset('images/fondoweb.jpg') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #ashfinal {
+            position: relative;
+            right: 60px;
+            width: 20px;
+            height: 700px;
+        }
+        #ash {
+            position: relative;
+            right: 60px;
+        }
+    </style>
+@endsection('style')
+
+@section('content')
+    <!-- Forma de poner una imagen de fondo en web =) -->
+    <section class="h-100 gradient-form" style="background-image: url('images/fondo5.jpg');">
+
+>>>>>>> Stashed changes
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -78,7 +161,4 @@
             </div>
         </div>
     </section>
-
-</body>
-
-</html>
+ @endsection('content')

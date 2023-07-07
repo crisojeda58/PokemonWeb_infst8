@@ -67,14 +67,86 @@
       height: 5vh;
       border :2px solid black;
     }
+<<<<<<< Updated upstream
+=======
+    .dropdown{
+      position: absolute;
+      top: 8vh;
+      left: 176vh;
+    }
+    
+>>>>>>> Stashed changes
   </style>
 @endsection('style')
 
 
 @section('content')
+<<<<<<< Updated upstream
   <div id="contenido">
     <div id="contenedor">  
     <div id="TituloMapa" class ="m-3" style="color: white;">
+=======
+  
+<div class="dropdown" id="OpcionesUsuario">
+      <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cristian
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+        <li><a class="dropdown-item" href="/">Cerrar Sesion</a></li>
+      </ul>
+    </div>  
+<div id="contenido">
+    <!--Contenido del contenedor derecho-->
+    <div id ="contenedorDerecha">
+     
+    </div>
+    <!--Contenido de Usuarios Conectados-->
+    <div id ="contenedorUsuarios">
+      <h3 id ="tituloUsuarios"  class="m-3 d-flex justify-content-center" style=" border-bottom: 1px solid silver;"> Usuarios Conectados</h3>
+      <div id="listadoUsuarios">
+      <li>Cristian</li>
+      <li>Santos</li>
+      <li>Luciano</li>
+      </div>
+    </div>
+    <!--Contenido de Usuarios Conectados FN-->
+
+    <!--Contenido del Chat-->
+    <div id="contenidoChat">
+    <div id ="caja-chat">
+        <div id ="chat">
+          
+          <div id="datos-chat">
+            <h3 id="tituloChat"class="d-flex justify-content-center"style=" border-bottom: 1px solid silver;">Chat </h3>
+            <span style="color: #26C6DA;">usuario:</span>
+            <span> mensaje</span>
+            <span style="float: right;">10:04 pm </span>
+          </div>
+        
+        </div>
+      </div>
+      <form method="POST" >  
+       <textarea id="mensaje" name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
+       <input type="submit" name="enviar" value="Enviar"></input>
+      </form>
+      
+    </div>
+    <!--Contenido del Chat FN-->
+
+    <!--Contenido del contenedor derecho FN-->
+
+    <!--Contenido del contenedor Izquierdo-->
+    
+    <div id="contenedorIzquierda">  
+
+      <!--Contenido del MAPA-->
+      
+      <!--Contenido del MAPA titulo-->
+
+      <div id="TituloMapa" class ="m-3" style="color: white;">
+>>>>>>> Stashed changes
         <h1 class="d-flex justify-content-center">Bienvenidos al</h1>
         <h1 class="d-flex justify-content-center">Mapa de Pokemon</h1>
       </div>

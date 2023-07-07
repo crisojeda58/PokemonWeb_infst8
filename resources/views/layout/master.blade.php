@@ -23,6 +23,7 @@
     @section('style')
     @show
 
+    
     @section('script')
     @show
 </head>
