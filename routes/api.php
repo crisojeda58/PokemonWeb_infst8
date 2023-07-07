@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MapaController;
 use App\Http\Controllers\PokedexController;
+use App\Http\Controllers\RecompensaController;
 use App\Http\Controllers\UsuarioController;
 
 /*
@@ -26,11 +27,8 @@ Route::resource('items', ItemController::class);
 Route::resource('mapas', MapaController::class);
 Route::resource('pokedexes', PokedexController::class);
 Route::resource('usuarios', UsuarioController::class);
-<<<<<<< Updated upstream
-=======
 
 Route::post('verificar-usuario', [RecompensaController::class, 'verificarUsuario']);
 Route::post('guardar-recompensa/{id}', [RecompensaController::class, 'guardarRecompensa']);
 Route::get('usuarios/{id}', [RecompensaController::class, 'obtenerRecompensaTotal']);
 
->>>>>>> Stashed changes

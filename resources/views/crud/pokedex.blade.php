@@ -44,7 +44,9 @@
 @section('content')
     <div class="dropdown" id="OpcionesUsuario">
       <a class="btn btn-dark dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
         Cristian
+
       </a>
 
       <ul class="dropdown-menu">

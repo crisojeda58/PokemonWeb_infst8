@@ -17,6 +17,7 @@
             position: absolute;
             top: 0vh;
             left: 164vh;
+
         }
 
         h1 {
@@ -29,6 +30,7 @@
 @section('script')
 
 <script>
+
   $(document).ready(function() {
     $.getJSON('http://pokemonweb_infst8.test/api/items', function(json) {
       var tr = []; 
@@ -59,6 +61,7 @@
     });
    });
 
+
 </script>
 @endsection('script')
 
@@ -77,6 +80,7 @@
     </div>
     <h1 style="color: black">Mi Inventario</h1>
 
+
     <table id="tabla_items" class="table">
         <thead>
             <tr>
@@ -90,7 +94,6 @@
         <tbody>
         </tbody>
     </table>
-
     <h1 style="color: black" class="mt-5">Mis Pokemon</h1>
     <table class="table" id="tabla_pokedex" >
       <thead>

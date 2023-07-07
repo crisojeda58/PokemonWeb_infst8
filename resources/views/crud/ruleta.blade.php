@@ -41,6 +41,7 @@
             top: 10vh;
             left: 170vh;
         }
+
 </style>
 @endsection('style')
 
@@ -56,6 +57,7 @@
       </ul>
 </div>
   <div id="chart" class="h1">Rueda de la Fortuna</div>
+
   <div id="question">
     <h1> </h1>
   </div>
@@ -253,6 +255,5 @@
       return array;
     }
   </script>
-
 @endsection('content')
 
